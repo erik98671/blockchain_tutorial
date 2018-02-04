@@ -10,7 +10,7 @@ class Block:
         self.currentHash = currentHash
 
 def getGenesisBlock():
-    return Block(0, '0', '1517671763.270221', 'My very first block :)', '0q23nfa0se8fhPH234hnjldapjfasdfansdf24')
+    return Block(0, '0', '1517758939.114336', 'Hello World!', '9ef27590aad240b0279542a6220f0296ef876f75606ac0ca36dd62a57ab8a1a9')
 
 def calculateHash(index, previousHash, timestamp, data):
     value = str(index) + str(previousHash) + str(timestamp) + str(data)
@@ -25,8 +25,8 @@ def getLatestBlock():
 
 def generateNextBlock(blockData):
     previousBlock = getLatestBlock()
-    previousHash = previousBlock.currentHash
     nextIndex = previousBlock.index + 1
+    previousHash = previousBlock.currentHash
     nextTimestamp = time.time()
     nextHash = calculateHash(nextIndex, previousHash, nextTimestamp, blockData)
     return Block(nextIndex, previousHash, nextTimestamp, blockData, nextHash)
@@ -75,6 +75,9 @@ def isValidChain(bcToValidate):
 
 # Create the blockchain as an array and add the Genesis Block.
 blockchain = [getGenesisBlock()]
+
+# Add the next block to the blockchain.
+blockchain.append(generateNextBlock('Erik Braun'))
 
 # This returns 'The chain is valid.' if the chain is valid.
 # isValidChain(blockchain)
