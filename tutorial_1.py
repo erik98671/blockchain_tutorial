@@ -10,7 +10,7 @@ class Block:
         self.currentHash = currentHash
 
 def getGenesisBlock():
-    return Block(0, '0', '1517671763.270221', 'My very first block :)', '0q23nfa0se8fhPH234hnjldapjfasdfansdf24')
+    return Block(0, '0', '1517671763.270221', 'My very first block :)', '0q23nfa0se8fhPH234hnjldapjfasdfansdf23')
 
 def calculateHash(index, previousHash, timestamp, data):
     value = str(index) + str(previousHash) + str(timestamp) + str(data)
